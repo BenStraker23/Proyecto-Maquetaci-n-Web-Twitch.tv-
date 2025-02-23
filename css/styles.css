@@ -1,0 +1,775 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1rem = 10px */
+    scroll-behavior: smooth; /* Desplazamiento suave */
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* IMPORTAR LAS FUENTES */
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    background-color: #0e0e10;
+    color: #fff;
+    overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
+}
+
+/* CONFIGURACIONES BARRA EXPLORAR/BUSQUEDA */
+.contenedor-explorar {
+    position: sticky;
+    top: 0; /* Se pega en la parte superior */
+    z-index: 100; /* Asegura que esté por encima de otros elementos */
+    display: flex; /* Organiza los elemntos en una sola dirección fila (horizontal) o  columna (vertical) */
+    justify-content: space-between; /* Separa los elementos a los extremos */
+    align-items: center; /* Centra verticalmente los elementos */
+    background-color: #18181B;
+    padding: 0.1rem;
+}
+
+.exploracion-barra-busqueda ul { /* Organización de listas */
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+}
+
+/* Botones de la barra derecha */
+.barra-derecha {
+    display: flex;
+    align-items: center; /* Centra los botones verticalmente */
+    gap: 10px; /* Espacio entre los botones */
+}
+
+/* Estilos para los botones de icono */
+.boton-icono {
+    background: none;
+    border: none;
+    font-size: 1.9rem; /* Tamaño del icono */
+    color: #fff; /* Color del icono */
+    cursor: pointer;
+    padding: 8px; /* Espaciado interno */
+    transition: background-color 0.3s ease; /* Transición suave para el fondo */
+}
+
+.boton-icono:hover {
+    background-color: #2F2F35; /* Fondo gris al pasar el cursor */
+    border-radius: 4px; /* Bordes redondeados */
+
+}
+
+/* Estilos para el botón gris (Iniciar Sesión) */
+.boton-gris {
+    background-color: #2F2F35; /* Fondo gris */
+    border: none;
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 8px 12px; /* Espaciado interno */
+    font-size: 1.6rem; /* Tamaño del texto */
+    color: #fff; /* Color del texto */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave para el fondo */
+}
+
+.boton-gris:hover {
+    background-color: #444; /* Cambia el fondo al pasar el cursor */
+}
+
+/* Estilos para el botón morado (Registrarse) */
+.boton-morado {
+    background-color: #772ce8; /* Fondo morado */
+    border: none;
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 8px 12px; /* Espaciado interno */
+    font-size: 1.6rem; /* Tamaño del texto */
+    color: #fff; /* Color del texto */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave para el fondo */
+}
+
+.boton-morado:hover {
+    background-color: #5c1daf; /* Cambia el fondo al pasar el cursor */
+}
+
+/* Estilos para el botón de la corona */
+#boton-corona {
+    background: none;
+    border: none;
+    font-size: 2rem; /* Tamaño del icono */
+    color: #fff; /* Color del icono */
+    cursor: pointer;
+    padding: 8px; /* Espaciado interno */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave para el fondo */
+    width: 30px; /* Ancho del botón */
+    height: 30px; /* Alto del botón */
+    display: flex; /* Usa Flexbox para centrar el icono */
+    align-items: center; /* Centra el icono verticalmente */
+    justify-content: center; /* Centra el icono horizontalmente */
+}
+
+/* Cambiar el fondo del botón al pasar el cursor */
+#boton-corona:hover {
+    background-color: #444; /* Fondo gris al pasar el cursor */
+}
+
+/* Agrega esto en tu archivo styles.css */
+.icono-usuario {
+    display: inline-block; /* Necesario para que funcione la transformación */
+    transition: transform 0.3s ease; /* Transición suave */
+    transform: rotate(-180deg); /* Rotación completa al pasar el mouse */
+}
+
+.exploracion-barra-busqueda ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 2.1rem;
+}
+
+/* Estilos para la barra de búsqueda */
+.barra-busqueda {
+    display: flex;
+    align-items: center;
+    gap: 0px; /* Espacio entre la barra y el botón */
+    margin-left: 630px; /* Mueve la barra de búsqueda al centro */
+    margin-right: auto; /* Mueve la barra de búsqueda al centro */
+
+}
+
+/* Estilos para pantallas medianas (menos de 1200px) */
+@media (max-width: 1200px) {
+    .barra-busqueda {
+        margin-left: 10px; /* Ajusta la posición para pantallas medianas */
+    }
+}
+
+#input-busqueda {
+    padding: 8px;
+    border: 1px solid #525256;
+    border-radius: 7px 0px 0px 7px;
+    font-size: 1.6rem;
+    width: 390px; /* Ancho de la barra de búsqueda */
+    height: 40.5px;
+    background-color: #18181B; /* Fondo obscuro */
+    color: white;
+    transition: border-color 0.3s ease; /* Transición suave para el borde */
+}
+
+/* Resaltar el borde de la barra de búsqueda al pasar el cursor */
+#input-busqueda:hover {
+    border-color: #999; /* Borde gris más oscuro al pasar el cursor */
+    border: 3px solid #747171; /* Borde morado más grueso */
+
+}
+
+/* Resaltar la barra de búsqueda cuando está enfocada */
+#input-busqueda:focus {
+    border-color: #A970FF; /* Borde morado */
+    border: 5px solid #A970FF; /* Borde morado más grueso */
+    background-color: #18181B; /* Fondo gris más oscuro al enfocar */
+    outline: none; /* Elimina el contorno predeterminado */
+    color: white; /* Color del texto */
+
+}
+
+#boton-busqueda {
+    width: 38px;
+    height: 40.5px;
+    background-color: #2F2F35;
+    border: none;
+    border-radius: 0px 7px 7px 0px; /* Bordes redondeados */
+    cursor: not-allowed; /* Cursor de prohibido por defecto */
+    display: flex; /* Usa Flexbox para alinear el icono */
+    align-items: center; /* Centra el icono verticalmente */
+    justify-content: center;
+}
+
+/* Estilos para el icono */
+.icono {
+    font-size: 4rem; /* Tamaño del emoji de lupa */
+    color: white;
+    transform: rotate(-45deg); /* Rota el icono 45 grados a la izquierda */
+    transition: cursor 0.3s ease; /* Transición suave para el cursor */
+}
+
+#boton-busqueda:not(:disabled) {
+    cursor: pointer; /* Cursor de manita cuando el botón está habilitado */
+    background-color: #2F2F35; 
+}
+
+.btn-twitch {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.btn-twitch img {
+    width: 50px;
+    height: auto;
+}
+
+/* Estilos para el enlace "Explorar" */
+.explorar {
+    color: #fff; /* Color inicial del texto */
+    text-decoration: none; /* Sin subrayado */
+    transition: color 0.3s ease; /* Transición suave para el color */
+    font-weight: bold;
+}
+
+.explorar:hover {
+    color: #A970FF; /* Color morado al pasar el mouse */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+}
+
+/* Estilos para el estado activo */
+.explorar.activo {
+    color: #A970FF; /* Color morado */
+    position: relative; /* Necesario para la línea debajo */
+}
+
+.explorar.activo::after {
+    content: ""; /* Crea un pseudo-elemento */
+    position: absolute; /* Posición absoluta para la línea */
+    left: 0;
+    bottom: -15px; /* Distancia debajo del texto */
+    width: 100%; /* Ancho de la línea */
+    height: 2px; /* Grosor de la línea */
+    background-color: #A970FF; /* Color morado */
+}
+
+/* CONFIGURACIONES GLOBALES */
+.contenedor-navegacion { /* Configuración del texto EXPLORAR */
+    text-align: left;
+    margin-top: 5px;
+    font-size: 5.8rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: left;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.6rem;
+}
+
+/* CONFIGURACIONES DE LA LISTA DE CANALES EN VIVO */
+.container {
+    display: flex;
+    margin-top: 5px;
+}
+
+.sidebar {
+    position: sticky;
+    top: 70px; /* Ajusta este valor según la altura de la barra de búsqueda */
+    z-index: 99; /* Asegura que esté por encima de otros elementos */
+    height: calc(100vh - 70px); /* Altura del viewport menos la altura de la barra de búsqueda */
+    width: 265px;
+    height: 1000px;
+    background-color: #1F1F23;
+    padding: 20px;
+    /*transition: width 0.3s ease; /* Animación suave para el cambio de ancho */
+    /*order: 2; /* El sidebar se muestra después (derecha) */
+}
+
+.sidebar h2 {
+    font-size: 1.8rem;
+    color: #fafafa;
+    margin-top: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+}
+
+.sidebar-header h2 {
+    margin: 0; /* Elimina el margen predeterminado del h2 */
+    font-size: 1.8rem; /* Tamaño del texto */
+    color: #fafafa; /* Color del texto */
+}
+
+/* Estilos para el sidebar cuando está colapsado */
+.sidebar.colapsada {
+    width: 60px; /* Ancho reducido cuando la lista está colapsada */
+    padding: 10px; /* Reducir el espaciado interno */
+}
+
+.flecha-colapsar {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    font-size: 17px;
+}
+
+.flecha-colapsar.rotada {
+    transform: rotate(180deg); /* Rota la flecha cuando está colapsada */
+}
+
+.canales-lista {
+    list-style: none;
+    padding: 0px;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+    overflow: hidden;
+    max-height: 1000px; /* Altura máxima para la lista expandida */
+}
+
+
+/* Estilos para la lista colapsada */
+.canales-lista.colapsada {
+    display: block; /* Muestra las imágenes en línea */
+    /*max-height: 60px; /* Altura máxima para la lista colapsada */
+    overflow: visible; /* Oculta el contenido que excede la altura */
+    padding: 0px; /* Espaciado interno */
+}
+
+.canales-lista.colapsada li {
+    display: flex; /* Alinea la imagen y el texto (aunque el texto estará oculto) */
+    align-items: center;
+    justify-content: flex-start; /* Alinea las imágenes a la izquierda */
+    margin-bottom: 5px; /* Espacio entre las imágenes */
+
+}
+
+.canales-lista.colapsada .canal-info {
+    display: none; /* Oculta la información del canal cuando esta colapsada */
+}
+
+.canales-lista li {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre la imagen y el texto */
+    margin: 15px 0;
+}
+
+.canal-imagen {
+    width: 40px; /* Tamaño de la imagen de perfil */
+    height: 40px;
+    border-radius: 50%; /* Hace la imagen redonda */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+}
+
+.sidebar-header.colapsada h2 {
+    display: none;
+}
+
+.canal-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Ocupa el espacio disponible */
+}
+
+.canal-header {
+    display: flex;
+    justify-content: space-between; /* Alinea el nombre y los espectadores */
+    align-items: center; /* Centra verticalmente */
+}
+
+.canal-nombre {
+    font-weight: bold;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.canales-lista li span {
+    display: block;
+}
+.canales-lista li:hover {
+    background-color: #2a2a2e;
+    cursor: pointer;
+}
+
+.canal-juego {
+    color: #adadad;
+    font-size: 1.4rem;
+}
+
+.espectadores {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.circulo-rojo {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.cantidad-espectadores {
+    color: #adadad;
+    font-size: 1.5rem;
+}
+
+/* CONFIGURACIONES LISTA DE CATEGORIAS - EXPLORAR */
+.contenido-principal {
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en una columna */
+    gap: 20px; /* Espacio entre los elementos */
+    padding: 20px;
+    flex-grow: 1;
+    transition: margin-left 0.3s ease; /* Transición suave para el margen */
+}
+
+.text-center {
+    text-align: left;
+}
+
+.seccion-lista-categorias {
+    width: 100%;
+    margin-top: -6px; /* Ajusta este valor según sea necesario */
+
+}
+
+.lista-categorias {
+    display: grid; /* Organizar elementos en filas y columnas al mismo tiempo (cuadrícula) */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    /* grid-template-columns: 1fr 1fr 1fr; /* 3 columnas de igual tamaño */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.categoria {
+    position: relative; /* Necesario para el pseudo-elemento */
+    overflow: hidden; /* Oculta el desbordamiento del pseudo-elemento */
+    border-radius: 0 2px 8px 8px; /* Bordes redondeados */
+    background-color: #0E0E10; /* Fondo oscuro */
+
+}
+
+.imagen-contenedor {
+    position: relative; /* Necesario para el pseudo-elemento */
+    overflow: hidden; /* Oculta el desbordamiento del pseudo-elemento */
+}
+
+
+
+.categoria img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease; /* Transición suave para la imagen */
+}
+
+.categoria:hover img {
+    transform: translateX(10px); /* Mueve la imagen hacia la derecha */
+}
+
+/* Pseudo-elemento para el fondo morado */
+.categoria::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%; /* Inicia fuera de la vista */
+    width: 100%;
+    height: 100%;
+    background-color: #772ce8; /* Color morado */
+    transition: left 0.3s ease; /* Transición suave para el fondo */
+    z-index: -1; /* Coloca el fondo detrás de la imagen */
+}
+
+.categoria:hover::before {
+    left: 0; /* Muestra el fondo morado */
+}
+
+.texto-categoria {
+    padding: 10px;
+    background-color: #0E0E10; /* Fondo oscuro para el texto */
+    border-radius: 0 0 8px 8px; /* Bordes redondeados solo abajo */
+}
+
+.categoria h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: rgb(255, 255, 255);
+}
+
+.categoria p {
+    font-size: 1.4rem;
+    color: #adadad;
+    margin: 5px 0;
+}
+
+.botones-categoria {
+    display: flex; /* Organiza los botones en una fila */
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 10px; /* Espacio arriba de los botones */
+}
+
+.btn-ver {
+    display: inline-block;
+    background-color: #29292E;
+    color: #a0a0aa;
+    padding: 5px 15px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 1.4rem;
+    margin-top: 5px;
+}
+
+/*
+.btn-ver:hover {
+    background-color: #772ce8;
+} 
+*/
+
+/* CONFIGURACIONES FOOTER */
+footer {
+    background-color: #451093;
+    text-align: left;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 100; /* Barra de búsqueda por encima */
+    display: flex;
+    justify-content: space-between; /* Alinea el texto y el botón */
+    align-items: center; /* Centra verticalmente los elementos */
+
+}
+
+footer p {
+    margin: 0;
+    font-size: 2rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.boton-registrarse-footer {
+    background-color: #ffffff; /* Fondo morado */
+    border: none;
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 8px 16px; /* Espaciado interno */
+    font-size: 1.6rem; /* Tamaño del texto */
+    color: #292626; /* Texto negro */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave para el fondo */
+}
+
+.boton-registrarse-footer:hover {
+    background-color: #dbdbe2; /* Fondo gris al pasar el cursor */
+}
+
+/* Estilos para los filtros (Categorías y Canales en vivo) */
+.seccion-filtros {
+    width: 100%;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.filtros {
+    display: flex;
+    gap: 30px; /* Espacio entre los elementos */
+    margin-bottom: 10px; /* Espacio debajo de los filtros */
+    padding-top: 2.5%;
+}
+
+.filtro {
+    cursor: pointer; /* Cambia el cursor a pointer */
+    color: white; /* Color base */
+    font-size: 2.15rem; /* Tamaño de la fuente */
+    text-decoration: none; /* Sin subrayado por defecto */
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Transición suave */
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative; /* Necesario para la línea debajo */
+
+}
+
+.filtro:hover, .explorar:hover {
+    color: #A970FF; /* Morado oscuro al pasar el cursor */
+}
+
+.filtro.activo {
+    color: #BF94FF; /* Morado más claro al hacer clic */
+}
+
+.filtro.activo::after {
+    content: ""; /* Crea un pseudo-elemento */
+    position: absolute;
+    left: 0;
+    bottom: -10px; /* Distancia debajo del texto */
+    width: 100%; /* Ancho de la línea */
+    height: 3px; /* Grosor de la línea */
+    background-color: #A970FF; /* Color morado */
+    border-radius: 2px; /* Bordes redondeados */
+}
+
+.filtro:first-child {
+    margin-right: 15px; /* Margen derecho para "Categorías" */
+}
+
+/* O */
+.filtro:last-child {
+    margin-left: 15px; /* Margen izquierdo para "Canales en vivo" */
+}
+
+.filtros-superiores {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px; /* Ajusta el margen según sea necesario */
+    padding: 0px;
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+.barra-busqueda-categorias {
+    position: relative;
+}
+
+.barra-busqueda-categorias input {
+    padding: 8px 12px 8px 30px; /* Espacio a la izquierda para el ícono */
+    border: 1px solid #525252;
+    border-radius: 5px;
+    background-color: #0e0e10; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+    font-size: 1.4rem;
+    width: 220px; /* Ancho de la barra de búsqueda */
+    outline: none;
+}
+
+/* Hover en la barra de búsqueda eqtiquetas de categorías */
+.barra-busqueda-categorias input:hover {
+    border-color: #adadad; /* Borde gris al pasar el cursor */
+}
+
+.icono-lupa {
+    position: absolute;
+    left: 10px; /* Posición del ícono */
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg); /* Centra y rota el ícono */
+    font-size: 2.5rem;
+    color: #adadad; /* Color del ícono */
+    pointer-events: none; /* Evita que el ícono interfiera con el input */
+}
+
+.barra-busqueda-categorias input::placeholder {
+    color: #adadad; /* Color del placeholder */
+}
+
+.barra-busqueda-categorias input:focus {
+    border-color: #A970FF; /* Borde morado al enfocar */
+    border-width: 5px; /* Borde más grueso */
+
+}
+
+.filtro-ordenacion {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el texto y el select */
+}
+
+.filtro-ordenacion span {
+    color: #ffffff; /* Texto blanco */
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.filtro-ordenacion select {
+    padding: 8px 12px;
+    border: 1px solid #525252;
+    border-radius: 5px;
+    background-color: #0e0e10; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+    font-size: 1.4rem;
+    outline: none;
+    cursor: pointer;
+}
+
+.filtro-ordenacion select:hover {
+    border-color: #adadad; /* Borde gris al pasar el cursor */
+}
+
+.filtro-ordenacion select:focus {
+    border-color: #A970FF; /* Borde morado al enfocar */
+    border-width: 5px; /* Borde más grueso */
+}
+
+.seccion-categorias {
+    width: 100%;
+}
+
+/* Estilos para los botones de categorías (Juegos - IRL - Musica y DJ - CReative - Esports) */
+.categorias-botones {
+    display: flex;
+    gap: 15px; /* Espacio entre los botones */
+    margin-top: 20px;
+    flex-wrap: wrap; /* Permite que los botones se envuelvan en varias líneas si es necesario */
+
+}
+
+.boton-categoria { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #772ce8; /* Morado oscuro */
+    border: none;
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave para el fondo */
+    width: 345px; /* Ancho del botón */
+    height: 52px;
+    text-align: left;
+}
+
+.boton-categoria:hover {
+    background-color: #5c1daf; /* Morado más oscuro al pasar el cursor */
+}
+
+.imagen-categoria {
+    width: 80px; /* Tamaño de la imagen */
+    height: 80px;
+    margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+    filter: grayscale(100%) contrast(1.5); /* Convierte la imagen a blanco */
+}
+
+.boton-categoria:hover .imagen-categoria {
+    filter: none;
+}
+
+.boton-categoria span {
+    color: #fff; /* Color del texto */
+    font-size: 2.5rem; /* Tamaño del texto */
+    font-weight: bold; /* Texto en negrita */
+    flex-grow: 1;
+
+}
+
+/* Estilo general de la barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 12px; /* Ancho de la barra de desplazamiento */
+}
+
+/* Estilo de la pista (fondo de la barra de desplazamiento) */
+::-webkit-scrollbar-track {
+    background-color: #0E0E10; /* Color de fondo */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+/* Estilo del "pulgarcito" (la parte que se mueve) */
+::-webkit-scrollbar-thumb {
+    background-color: #616164;
+    border-radius: 10px; /* Bordes redondeados */
+    border: 3px solid #0E0E10; /* Borde para que combine con el fondo */
+}
+
