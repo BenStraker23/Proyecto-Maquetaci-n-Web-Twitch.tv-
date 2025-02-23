@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitch</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+
+<body>   
+    <div class="contenedor-explorar">
+        <!-- Barra de búsqueda y otros elementos -->
+        <nav class="exploracion-barra-busqueda">
+            <ul>
+                <li class="btn-twitch">
+                    <button onclick="location.href='index.html'" style="border: none; background: none; cursor: pointer;">
+                        <img src="img/logo1.png" alt="Explorar" width="50">
+                    </button>
+                </li> 
+                <li><a href="explorar.html" class="explorar" id="enlace-explorar">Explorar</a></li>
+                <li><a href="#" class="mas-opciones">⋮</a></li>
+
+                <!-- Barra de búsqueda -->
+                <li class="barra-busqueda">
+                    <input type="text" id="input-busqueda" placeholder="Buscar">
+                    <button id="boton-busqueda" disabled>
+                        <span class="icono">⚲</span> <!-- Emoji de lupa -->
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Botones de la barra derecha -->
+        <div class="barra-derecha">
+            <!-- Botón de la corona -->
+            <button class="boton-icono" id="boton-corona">
+                🜲 <!-- Icono de la corona -->
+            </button>
+
+            <!-- Botón de Iniciar Sesión -->
+            <button class="boton-gris" id="boton-iniciar-sesion">
+                Iniciar Sesión
+            </button>
+
+            <!-- Botón de Registrarse -->
+            <button class="boton-morado" id="boton-registrarse">
+                Registrarse
+            </button>
+
+            <!-- Botón del usuario -->
+            <button class="boton-icono" id="boton-usuario">
+                <span class="icono-usuario">♉︎</span> <!-- Icono del usuario -->
+            </button>
+        </div>
+    </div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>CANALES EN VIVO</h2> 
+                <button id="toggle-lista" class="flecha-colapsar">←│</button>
+            </div>
+            <ul class="canales-lista">
+                <li>
+                    <img src="img/perfil.png" alt="Perfil de ElMariana" class="canal-imagen">
+                    <div class="canal-info">
+                        <div class="canal-header">
+                            <span class="canal-nombre">ElMariana</span>
+                            <div class="espectadores">
+                                <span class="circulo-rojo"></span>
+                                <span class="cantidad-espectadores">6 k</span>
+                            </div>
+                        </div>
+                        <span class="canal-juego">The Walking Dead</span>
+                    </div>
+
+                </li>
+
+                <li>
+                    <img src="img/perfil1.png" alt="Perfil de Cuevana3Tv" class="canal-imagen">
+                    <div class="canal-info">
+                        <div class="canal-header">
+                            <span class="canal-nombre">Cuevana3Tv</span>
+                            <div class="espectadores">
+                                <span class="circulo-rojo"></span>
+                                <span class="cantidad-espectadores">2 k</span>
+                            </div>
+                        </div>
+                        <span class="canal-juego">Series y pelis</span>
+                    </div>
+                </li>
+
+                <li>
+                    <img src="img/perfil2.png" alt="Perfil de LienzlIVE" class="canal-imagen">
+                    <div class="canal-info">
+                        <div class="canal-header">
+                            <span class="canal-nombre">LienzlIVE +2</span>
+                            <div class="espectadores">
+                                <span class="circulo-rojo"></span>
+                                <span class="cantidad-espectadores">98</span>
+                            </div>
+                        </div>
+                        <span class="canal-juego">Solo chateando</span>
+                    </div>
+                </li>
+                
+                <li>
+                    <img src="img/perfil1.png" alt="Perfil de CuevanaTv_" class="canal-imagen">
+                    <div class="canal-info">
+                        <div class="canal-header">
+                            <span class="canal-nombre">CuevanaTv_</span>
+                            <div class="espectadores">
+                                <span class="circulo-rojo"></span>
+                                <span class="cantidad-espectadores">200</span>
+                            </div>
+                        </div>
+                        <span class="canal-juego">Series Top</span>
+                    </div>
+                </li>
+
+                <li>
+                    <img src="img/perfil3.png" alt="Perfil de el_reymo09" class="canal-imagen">
+                    <div class="canal-info">
+                        <div class="canal-header">
+                            <span class="canal-nombre">el_reymo09</span>
+                            <div class="espectadores">
+                                <span class="circulo-rojo"></span>
+                                <span class="cantidad-espectadores">4 k</span>
+                            </div>
+                        </div>
+                            <span class="canal-juego">South Park</span>
+                    </div>
+                </li>
+                
+                <li>
+                    <img src="img/perfil4.png" alt="Perfil de DonRamoon_" class="canal-imagen">
+                    <div class="canal-info">
+                        <div class="canal-header">
+                            <span class="canal-nombre">DonRamoon_</span>
+                            <div class="espectadores">
+                                <span class="circulo-rojo"></span>
+                                <span class="cantidad-espectadores">112</span>
+                            </div>
+                        </div>
+                            <span class="canal-juego">Anime Squad</span>
+                    </div>
+                </li>
+
+                <li>
+                    <img src="img/perfil5.png" alt="Perfil de peliculassttttv" class="canal-imagen">
+                    <div class="canal-info">
+                        <div class="canal-header">
+                            <span class="canal-nombre">peliculassttttv</span>
+                            <div class="espectadores">
+                                <span class="circulo-rojo"></span>
+                                <span class="cantidad-espectadores">750</span>
+                            </div>
+                        </div>
+                            <span class="canal-juego">Animesssss</span>
+                    </div>
+                </li>
+
+                <li>
+                    <img src="img/perfil6.png" alt="Perfil de Laxxuz" class="canal-imagen">
+                    <div class="canal-info">
+                        <div class="canal-header">
+                            <span class="canal-nombre">Laxxuz</span>
+                            <div class="espectadores">
+                                <span class="circulo-rojo"></span>
+                                <span class="cantidad-espectadores">2 k</span>
+                            </div>
+                        </div>
+                            <span class="canal-juego">World of Warcraft</span>
+                    </div>
+                </li>
+
+                <li>
+                    <img src="img/perfil7.jpeg" alt="Perfil de xChronoFox" class="canal-imagen">
+                    <div class="canal-info">
+                        <div class="canal-header">
+                            <span class="canal-nombre">xChronoFox</span>
+                            <div class="espectadores">
+                                <span class="circulo-rojo"></span>
+                                <span class="cantidad-espectadores">3 k</span>
+                            </div>
+                        </div>
+                            <span class="canal-juego">League of Legends</span>
+                    </div>
+                </li>
+
+                <li>
+                    <img src="img/perfil8.png" alt="Perfil de pepelojudo" class="canal-imagen">
+                    <div class="canal-info">
+                        <div class="canal-header">
+                            <span class="canal-nombre">pepelojudo</span>
+                            <div class="espectadores">
+                                <span class="circulo-rojo"></span>
+                                <span class="cantidad-espectadores">500</span>
+                            </div>
+                        </div>
+                            <span class="canal-juego">HH</span>
+                    </div>
+                </li>
+            </ul>
+        </aside>
+        <script src="js/script.js" defer></script>
+
+        <main class="contenido-principal contenedor">
+            <div class="seccion-categorias">
+                <h1 class="contenedor-navegacion">Explorar</h1>
+                <nav class="categorias-botones">
+                    <button class="boton-categoria">
+                        <span>Juegos</span>
+                        <img src="img/juegos2.png" alt="Juegos" class="imagen-categoria">
+                    </button>
+
+                    <button class="boton-categoria">
+                        <span>IRL</span>
+                        <img src="img/irl2.png" alt="IRL" class="imagen-categoria">
+                    </button>
+
+                    <button class="boton-categoria">
+                        <span>Música y DJ</span>
+                        <img src="img/musica2.png" alt="Música y DJ" class="imagen-categoria">
+                    </button>
+
+                    <button class="boton-categoria">
+                        <span>Creative</span>
+                        <img src="img/creative2.png" alt="Creative" class="imagen-categoria">
+                    </button>
+
+                    <button class="boton-categoria">
+                        <span>Esports</span>
+                        <img src="img/esports2.png" alt="Esports" class="imagen-categoria">
+                    </button>
+                </nav>
+            </div>
+
+        <div class="seccion-filtros">
+            <div class="filtros>">
+                <a href="explorar.html" class="filtro" data-filtro="categorias">Categorías</a> 
+                <a href="explorar.html" class="filtro" data-filtro="canales">Canales en vivo</a>
+            </div>
+        </div>
+
+        <div class="filtros-superiores">
+            <!-- Barra de búsqueda -->
+            <div class="barra-busqueda-categorias">
+                <span class="icono-lupa">⚲</span> <!-- Ícono de lupa -->
+                <input type="text" placeholder="Buscar etiquetas de categorías">
+            </div>
+        
+            <!-- Filtro de ordenación -->
+            <div class="filtro-ordenacion">
+                <span>Ordenar por</span>
+                <select>
+                    <option value="recomendado">Recomendado para ti</option>
+                    <option value="espectadores">Más espectadores</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="seccion-lista-categorias">
+            <div class="lista-categorias">
+                <div class="categoria">
+                    <div class="imagen-contenedor">
+
+                        <img src="img/categoria1.jpg" alt="imagen categoria">
+                    </div>
+                    <div class="texto-categoria">
+                        <h3>Solo chateando</h3>
+                        <p>528.1 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">IRL (vida real)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria2.png" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>World of Warcraft</h3>
+                        <p>92.7 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Rol</a>
+                            <a href="#" class="btn-ver">Estrategia</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria3.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Fornite</h3>
+                        <p>281.7 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Shooter</a>
+                            <a href="#" class="btn-ver">Acción</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria4.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Minecraft</h3>
+                        <p>72.8 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Simulación</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria5.png" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>VALORANT</h3>
+                        <p>110.2 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Shooter</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria6.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>League of Legends</h3>
+                        <p>104.8 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Juego de rol</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria7.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Grand Theft Auto V</h3>
+                        <p>122.6 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Shooter</a>
+                            <a href="#" class="btn-ver">Acción</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria8.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>DOOM</h3>
+                        <p> 9.6 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">ES ETERNO</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria9.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Anime Squad</h3>
+                        <p>15.1 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Shooter</a>
+                            <a href="#" class="btn-ver">Acción</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria10.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Dead By Daylight</h3>
+                        <p>528.1 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Estrategia</a>
+                            <a href="#" class="btn-ver">Acción</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria11.png" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>ASMR</h3>
+                        <p>92.7 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Relajación</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria12.png" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Call Of Duty: Warzone</h3>
+                        <p>281.7 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Shooter</a>
+                            <a href="#" class="btn-ver">Acción</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria13.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>EA Sports FC 25</h3>
+                        <p>72.8 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Simulación</a>
+                            <a href="#" class="btn-ver">Deportes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria14.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Marvel Rivals</h3>
+                        <p>110.2 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Shooter</a>
+                            <a href="#" class="btn-ver">Acción</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria15.png" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>IRL</h3>
+                        <p>104.8 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">IRL (vida real)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria16.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Rust</h3>
+                        <p>122.6 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Shooter</a>
+                            <a href="#" class="btn-ver">Acción</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria17.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Food & Drink</h3>
+                        <p> 9.6 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Comida</a>
+                            <a href="#" class="btn-ver">Bebidas</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria18.png" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Overwatch 2</h3>
+                        <p>15.1 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Shooter</a>
+                            <a href="#" class="btn-ver">Acción</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria19.png" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Deportes</h3>
+                        <p>528.1 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">IRL (vida real)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria20.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Brawl Stars</h3>
+                        <p>92.7 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Móvil</a>
+                            <a href="#" class="btn-ver">Shooter</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria21.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Clash Royale</h3>
+                        <p>281.7 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Juego móvil</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria22.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Rocket League</h3>
+                        <p>72.8 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Carreras</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria23.png" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Eventos especiales</h3>
+                        <p>110.2 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">IRL (vida real)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria24.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Kingdom Come</h3>
+                        <p>104.8 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Juego de rol</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria25.png" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Kings League</h3>
+                        <p>122.6 k espectadores</p>
+                        <div class="botones-categoria">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria26.png" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Counter Strike 2</h3>
+                        <p> 9.6 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Shooter</a>
+                            <a href="#" class="btn-ver">Acción</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria27.png" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Dota 2</h3>
+                        <p>15.1 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Estrategia</a>
+                            <a href="#" class="btn-ver">MOBA</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria28.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Arte</h3>
+                        <p>528.1 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Creative</a>
+                            <a href="#" class="btn-ver">IRL</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria29.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>It Takes Two</h3>
+                        <p>92.7 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Plataformas</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria30.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Poppy Playtime</h3>
+                        <p>281.7 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Rompecabezas</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria31.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>The Simpsons: Hit & Run</h3>
+                        <p>72.8 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Plataformas</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria32.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Apex Legends</h3>
+                        <p>110.2 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Shooter</a>
+                            <a href="#" class="btn-ver">Acción</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria33.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Day Z</h3>
+                        <p>104.8 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Terror</a>
+                            <a href="#" class="btn-ver">Acción</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria34.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Geoguessr</h3>
+                        <p>122.6 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Búsqueda</a>
+                            <a href="#" class="btn-ver">Mundo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria35.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Resident Evil 2</h3>
+                        <p> 9.6 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Terror</a>
+                            <a href="#" class="btn-ver">Zombies</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria36.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>South Park</h3>
+                        <p>15.1 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Series</a>
+                            <a href="#" class="btn-ver">Comedia</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria37.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>The Walking Dead</h3>
+                        <p>528.1 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Punto y click</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria38.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Super Mario Party</h3>
+                        <p>92.7 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Juego de cartas</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria39.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>WWE 2k24</h3>
+                        <p>281.7 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Peleas</a>
+                            <a href="#" class="btn-ver">Simulación</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria40.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Sonic The Hedgehog</h3>
+                        <p>72.8 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Plataformas</a>
+                            <a href="#" class="btn-ver">Acción</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria41.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Lethal Company</h3>
+                        <p>110.2 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Juego indie</a>
+                            <a href="#" class="btn-ver">Acción</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria42.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>VR chat</h3>
+                        <p>104.8 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Simulación</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria43.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Hollow Knight</h3>
+                        <p>122.6 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Plataformas</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria44.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>ELDEN RING</h3>
+                        <p> 9.6 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Juego de rol</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categoria">
+                    <img src="img/categoria45.jpg" alt="imagen categoria">
+                    <div class="texto-categoria">
+                        <h3>Roblox</h3>
+                        <p>15.1 k espectadores</p>
+                        <div class="botones-categoria">
+                            <a href="#" class="btn-ver">Plataformas</a>
+                            <a href="#" class="btn-ver">Rol</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        
+    </div>
+
+    </main>
+    <footer>
+        <p><span>😼 ¡Únete a la comunidad de Twitch!</span>    Descubre los mejores streams en vivo donde sea que estés.</p>
+        <button class="boton-registrarse-footer">Registrarse</button>
+    </footer>
+</body>
+</html>
